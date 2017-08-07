@@ -1,0 +1,40 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %} Parte 3
+Istruzioni {% endblock %}
+{% block content %}
+
+<p>
+In questa terza parte, ti chiediamo di fare {{Constants.num_rounds}} decisioni, simili a quelle che hai fatto nella prima parte.
+</p>
+<p>
+Al contrario della prima parte, il guadagno di tutti i partecipanti in questa terza parte dell’esperimento dipenderà in parte dalle decisioni di <b> <span style="color:red"> tutti i partecipanti (inclusa la tua)</span></b> e in parte dal caso.
+</p>
+<p>
+A differenza della parte precedente, l’opzione che determina il tuo pagamento non è necessariamente quella scelta da te ma <b>quella scelta dalla maggioranza dei partecipanti</b>.
+</p>
+    <p>
+    La scelta della maggioranza determinerà il tuo pagamento e quello di tutti gli altri. Poiché ogni decisione è tra due opzioni e ci sono {{Constants.players_per_group}} partecipanti, la prima opzione sarà la scelta del gruppo <b>solo se preferita da almeno {{Constants.majority}} partecipanti</b>. In caso contrario, la scelta del gruppo sarà la seconda opzione.
+</p>
+<p style="color:red">
+    Quando hai letto le istruzioni con cura, clicca Continua! e aspetta ulteriori istruzioni.
+</p>
+    <br>
+
+<!--{% next_button %}-->
+    <button style="font: bold 20px Arial">COMINCIA</button>
+
+{% endblock %}
+
+{% block styles %}
+
+<style type="text/css">
+    p {
+        text-align:justify;
+    text-justify:inter-word;
+        font-size: 20px;
+}
+    </style>
+
+{% endblock %}

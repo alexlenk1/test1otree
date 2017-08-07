@@ -1,0 +1,35 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Soluzione alla Domanda di Comprensione 3 di 3
+{% endblock %}
+
+{% block content %}
+
+    <p>
+         <font size="5">La domanda era: {{ Constants.training_question_3 }}</font>
+    </p>
+
+    <p>
+         <font size="5">La tua risposta è stata: {{ player.training_question_3 }}</font>
+    </p>
+
+    <p>
+         <font size="4">Il tuo guadagno nella prima parte dell'esperimento è determinato da una sola scelta.
+        Il computer selezionerà a caso il round la cui scelta determinerà il tuo pagamento.
+        Tutti i round hanno la stessa probabilità di essere selezionati quindi tutte le scelte sono importanti.
+        Prendi ogni decisione con cura!</font>
+    </p>
+
+    {% if player.is_training_question_3_correct %}
+        <p class="text-success"><font size="5"><b>Hai risposto correttamente.</b></font></p>
+    {% else %}
+        <p class="text-danger"><font size="5"><b>Non hai risposto correttamente. Se hai dei dubbi, alza la mano.</b></font></p>
+    {% endif %}
+
+    <!--{% next_button %}-->
+    <button style="font: bold 20px Arial">CONTINUA</button>
+
+
+{% endblock %}

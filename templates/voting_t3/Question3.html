@@ -1,0 +1,17 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Domanda di Comprensione 3 di 3
+{% endblock %}
+
+{% block content %}
+        <p><font size="5">{{Constants.training_question_3}}</font>
+            {% formfield player.training_question_3 with label="" %}
+        </p>
+    <br>
+
+     <!--{% next_button %}-->
+    <button style="font: bold 20px Arial">INVIA!</button>
+
+{% endblock %}

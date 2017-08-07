@@ -1,0 +1,77 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+{% block title %} Decisione {{subsession.round_number}} di {{tot_round}} {% endblock %}
+
+
+{% block content %}
+
+<p style="color:red;">
+<b>Ricordati che, in questa parte, il tuo pagamento dipende dalle scelte della maggioranza dei partecipanti e dal caso.
+ </b>
+</p>
+
+<p><font size="5">Quale opzione preferisci?</font></p>
+
+
+{% if player.lot == 'lot8' %}
+
+<TABLE width=80%>
+    <TR><td width=2%><INPUT TYPE=RADIO NAME='my_choice' VALUE='Opzione A' id="id_my_choice"></td><td width=10%><font size="5">{{player.x1}} con prob. {{player.p_x1}}&#37;,
+        {{player.y1}} con prob. {{player.p_y1}}&#37;. </font></td> </TR>
+    <TR><td width=2%><INPUT TYPE=RADIO NAME='my_choice' VALUE='Opzione B' id="id_my_choice"></td><td width=20%><font size="5">{{player.x2}} con prob. {{player.p_x2}}&#37;,
+        {{player.y2}} con prob. {{player.p_y2}}&#37;.</font></td> </TR>
+    <TR><td align=center></td><td align=center></td></TR>
+</TABLE>
+
+{% elif player.lot == 'lot7' %}
+
+<TABLE width=80%>
+    <TR><td width=2%><INPUT TYPE=RADIO NAME='my_choice' VALUE='Opzione B' id="id_my_choice"></td><td width=20%><font size="5">{{player.x2}} con prob. {{player.p_x2}}&#37;,
+        {{player.y2}} con prob. {{player.p_y2}}&#37;.</font></td> </TR>
+    <TR><td width=2%><INPUT TYPE=RADIO NAME='my_choice' VALUE='Opzione A' id="id_my_choice"></td><td width=10%><font size="5">{{player.x1}} con prob. {{player.p_x1}}&#37;,
+        {{player.y1}} con prob. {{player.p_y1}}&#37;. </font></td> </TR>
+    <TR><td align=center></td><td align=center></td></TR>
+</TABLE>
+
+{% elif player.lot == 'lot2' or player.lot == 'lot3' or player.lot == 'lot5'  %}
+
+
+<TABLE width=80%>
+    <TR><td width=2%><INPUT TYPE=RADIO NAME='my_choice' VALUE='Opzione A' id="id_my_choice"></td><td width=10%><font size="5">{{player.x1}}</font></td></TR>
+    <TR><td width=2%><INPUT TYPE=RADIO NAME='my_choice' VALUE='Opzione B' id="id_my_choice"></td><td width=20%><font size="5">{{player.x2}} con prob. {{player.p_x2}}&#37;,
+        {{player.y2}} con prob. {{player.p_y2}}&#37;.</font></td> </TR>
+    <TR><td align=center></td><td align=center></td></TR>
+</TABLE>
+
+{% elif player.lot == 'lot1' or player.lot == 'lot4' or player.lot == 'lot6'  %}
+
+<TABLE width=80%>
+    <TR><td width=2%><INPUT TYPE=RADIO NAME='my_choice' VALUE='Opzione B' id="id_my_choice"></td><td width=20%><font size="5">{{player.x2}} con prob. {{player.p_x2}}&#37;,
+        {{player.y2}} con prob. {{player.p_y2}}&#37;.</font></td> </TR>
+    <TR><td width=2%><INPUT TYPE=RADIO NAME='my_choice' VALUE='Opzione A' id="id_my_choice"></td><td width=10%><font size="5">{{player.x1}}</font></td></TR>
+    <TR><td align=center></td><td align=center></td></TR>
+</TABLE>
+
+{% endif %}
+       <br>
+
+     <!--{% next_button %}-->
+    <button style="font: bold 20px Arial">INVIA!</button>
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- define a script -->
+
+    <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        var PRIVATE_CHOICE = {{ player.my_choice|escapejs }};
+
+        var input = $('#id_my_choice');
+
+        });
+    </script>
+
+{% endblock %}

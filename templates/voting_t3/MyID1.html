@@ -1,0 +1,19 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Benvenuto al BELSS!
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        <font size="5">A quale postazione sei seduto?</font>
+    </p>
+
+
+    {% formfield player.n_id1 with label="Sono seduto alla postazione numero:" %}
+
+    <!--{% next_button %}-->
+    <button style="font: bold 20px Arial">INVIA!</button>
+{% endblock %}

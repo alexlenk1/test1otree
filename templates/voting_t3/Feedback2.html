@@ -1,0 +1,48 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Soluzione alla Domanda di Comprensione 2 di 3
+{% endblock %}
+
+{% block content %}
+     <p>
+           <font size="5">La domanda era: {{ Constants.training_question_2 }}</font>
+        </p>
+
+    <p>
+       <font size="5">Opzione A: &euro;30 di sicuro.</font>
+    </p>
+
+    <p>
+       <font size="5">Opzione B: &euro;5 con probabilit&agrave; 67&#37;,
+        &euro;90 con probabilit&agrave; 33&#37;.</font>
+    </p>
+
+<br>
+
+    <p>
+        <font size="5">La tua risposta è stata: {{ player.training_question_2 }}</font>
+    </p>
+
+<br>
+
+    <p>
+        <font size="4">Scegliendo l'Opzione B, puoi guadagnare 5 o 90 euro.
+        Al momento di fare questa scelta, non sai quale delle due cifre guadagnerai.
+        Determinerai il tuo guadagno alla fine dell’esperimento con il tiro dei dadi.
+        Hai 2 possibilità su 3 (67&#37;) di ricevere 5 euro e 1 possibilità su 3 (33&#37;) di ricevere 90 euro.
+        In questo senso, 5 euro sono più probabili di 90 euro.</font>
+    </p>
+
+    {% if player.is_training_question_2_correct %}
+        <p class="text-success"> <font size="5"><b>Hai risposto correttamente.</b></font> </p>
+    {% else %}
+        <p class="text-danger"> <font size="5"><b>Non hai risposto correttamente. Se hai dei dubbi, alza la mano.</b> </font></p>
+    {% endif %}
+
+    <!--{% next_button %}-->
+    <button style="font: bold 20px Arial">CONTINUA</button>
+
+
+{% endblock %}
